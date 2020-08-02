@@ -2,7 +2,7 @@
 
 This project is about visualisation of Covid19 data using third-party library Pingouin
 
-# Dependencies:
+# Dependencies
 
     Pingouin
     Pandas
