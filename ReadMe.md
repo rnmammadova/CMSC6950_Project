@@ -11,6 +11,7 @@ This project is about visualisation of Covid19 data using third-party library "C
     matplotlib.ticker
     matplotlib.animation
     IPython.display
+    texlive -latex -base
 
 # Instructions
 
