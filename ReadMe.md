@@ -1,23 +1,26 @@
 # Introduction
 
-This project is about visualisation of Covid19 data using third-party library Pingouin
+This project is about visualisation of Covid19 data using third-party library "Coco". "Coco" is country converter library to convert and match country names between different classifications and between different naming versions. 
 
 # Dependencies
 
-    Pingouin
+    country_coverter
     Pandas
     Numpy
-    Matplotlib
+    matplotlib.pyplot
+    matplotlib.ticker
+    matplotlib.animation
+    IPython.display
 
 # Instructions
 
 Pingouin can be easily installed using pip
 
-    pip install pingouin
+    pip install country_converter --upgrade
 
 or conda
 
-    conda install -c conda-forge pingouin
+    conda install -c konstantinstadler country_converter
 
 To clone repository:
 
