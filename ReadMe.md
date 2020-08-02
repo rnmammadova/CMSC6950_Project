@@ -9,7 +9,7 @@ This project is about visualisation of Covid19 data using third-party library Pi
     Numpy
     Matplotlib
 
-# Instruction
+# Instructions
 
 Pingouin can be easily installed using pip
 
