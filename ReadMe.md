@@ -1,16 +1,31 @@
+Introduction
 
-Main requiremet for making this project work is installation of following modules:
-Pingouin
-Pandas
-Numpy
-Matplotlib
+This project is about visualisation of Covid19 data using third-party library Pingouin
+
+Dependencies:
+
+    Pingouin
+    Pandas
+    Numpy
+    Matplotlib
+
+Instruction
 
 Pingouin can be easily installed using pip
 
-pip install pingouin
+    pip install pingouin
 
 or conda
 
-conda install -c conda-forge pingouin
+    conda install -c conda-forge pingouin
 
-Use "make" to initiate workflow and download necessary data
+To clone repository:
+
+git clone https://github.com/rnmammadova/CMSC6950_Project.git
+
+To generate report:
+
+    cd CMSC6950_Project
+    make
+
+
