@@ -7,6 +7,6 @@ plot1.jpg: WHO-COVID-19-global-data.csv plot.py
 plot2.jpg: WHO-COVID-19-global-data.csv plot.py
 	python3 plot.py
 
-usgs_earthquakes_2014.csv:
+WHO-COVID-19-global-data.csv:
 	wget https://covid19.who.int/WHO-COVID-19-global-data.csv
 
