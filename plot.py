@@ -2,9 +2,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import country_converter as coco
+
 df = pd.read_csv('WHO-COVID-19-global-data.csv')
+df['Date_reported'] = pd.to_datetime(df.Date_reported, format='%Y-%m-%d')
+df.columns = df.columns.str.strip()
 df = df[df.Country != 'Other']
-df['Date_reported'] = pd.to_datetime(df.Date_reported, format='%m/%d/%Y')
+
 CountryList, ConvertList = [], []
 for row in df['Country']:
     if row not in CountryList:
@@ -23,12 +26,11 @@ df['ISO3'] = df['Country'].apply(lambda country: convert(country))
 df_last_day = df[df.Date_reported == max(df['Date_reported'])]
 top_cases = df_last_day.sort_values('Cumulative_cases',ascending = False).head(10)
 
+top_deaths = df_last_day.sort_values('Cumulative_deaths',ascending = False).head(10)
+
 df_last_day['death_rate']=df_last_day.Cumulative_deaths/df_last_day.Cumulative_cases
 top_death_rate = df_last_day.sort_values('death_rate',ascending = False).head(10)
 top_death_rate = top_death_rate.reset_index()
-
-top_deaths = df_last_day.sort_values('Cumulative_deaths',ascending = False).head(10)
-top_deaths
 
 country = list(top_death_rate.ISO3) 
 cases = top_death_rate['Cumulative_cases'] 
