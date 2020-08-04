@@ -54,14 +54,14 @@ line1 = ax2.plot(x,rates, color='g', linewidth=10)
 plt.title('Details of top 10 countries with highest death rate', size=20)
 plt.xticks(r, country)
 ax.set_ylabel("Number of cases/deaths", size=15)
-ax2.set_ylabel("Number of rates", size=15)
+ax2.set_ylabel("Rate scale", size=15)
 ax.set_xlabel("Country", size=15)
 ax.set_yscale("log")
 
 plt.xlim(-width,len(country)-width/2)
 
 ax.legend(['Deaths','Cases'], fontsize=10, loc='upper left',bbox_to_anchor=(0,.8))
-ax2.legend(['Rates'], fontsize=10, bbox_to_anchor=(1,1))
+ax2.legend(['Rate'], fontsize=10, bbox_to_anchor=(1,1))
 for i,j in enumerate(cases):
     ax.text(i-width/2, j, j, horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':10})
 
@@ -87,6 +87,7 @@ f = plt.figure(figsize=(12,9))
 plt.subplot(2,1,1)
 pop = plt.bar(x1, y1)
 plt.ylabel('Total number of cases')
+plt.xlabel('Country')
 plt.xticks(x1, rotation='horizontal')
 
 for i,j in enumerate(y1):
@@ -94,6 +95,7 @@ for i,j in enumerate(y1):
 plt.subplot(2,1,2)
 gdp =plt.bar(x2, y2)
 plt.ylabel('Total number of deaths')
+plt.xlabel('Country')
 #plt.yscale('log')
 plt.xticks(x2, rotation='horizontal')
 for i,j in enumerate(y2):
