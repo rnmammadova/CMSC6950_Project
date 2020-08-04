@@ -74,7 +74,7 @@ for i,j in enumerate(rates):
     
 fig.tight_layout()
 
-plt.savefig('plot1.jpg')
+plt.savefig('plot2.jpg')
 
 
 x1=top_cases['ISO3']
@@ -99,4 +99,4 @@ plt.xticks(x2, rotation='horizontal')
 for i,j in enumerate(y2):
     plt.text(i, j, float(j), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':9})
 
-plt.savefig('plot2.jpg')
+plt.savefig('plot1.jpg')
