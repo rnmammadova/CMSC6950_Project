@@ -1,12 +1,12 @@
 report.pdf: report.tex plot1.jpg plot2.jpg
 	latexmk -pdf report.tex
 
-plot1.jpg: usgs_earthquakes_2014.csv plot.py
+plot1.jpg: WHO-COVID-19-global-data.csv plot.py
 	python3 plot.py
 
-plot2.jpg: usgs_earthquakes_2014.csv plot.py
+plot2.jpg: WHO-COVID-19-global-data.csv plot.py
 	python3 plot.py
 
 usgs_earthquakes_2014.csv:
-	wget http://www.ldeo.columbia.edu/~rpa/usgs_earthquakes_2014.csv
+	wget https://covid19.who.int/WHO-COVID-19-global-data.csv
 
