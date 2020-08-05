@@ -10,3 +10,14 @@ plot2.jpg: WHO-COVID-19-global-data.csv plot.py
 WHO-COVID-19-global-data.csv:
 	wget https://covid19.who.int/WHO-COVID-19-global-data.csv
 
+.PHONY: almost_clean clean
+
+
+clean: almost_clean
+	rm WHO-COVID-19-global-data.csv
+	rm report.pdf
+	rm plot1.jpg plot2.jpg
+
+almost_clean:
+	latexmk -c
+
