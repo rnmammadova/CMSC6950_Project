@@ -5,7 +5,6 @@ import country_converter as coco
 
 #Reading the data
 df = pd.read_csv('WHO-COVID-19-global-data.csv', parse_dates=['Date_reported'])
-#df['Date_reported'] = pd.to_datetime(df.Date_reported, format='%Y-%m-%d')
 df.columns = df.columns.str.strip()
 df = df[df.Country != 'Other']
 
@@ -22,36 +21,11 @@ def convert(value):
     return result
 df['ISO3'] = df['Country'].apply(lambda country: convert(country))
 
-#Defining top cases, top deaths and deat rates
+#Defining top 10 deat rates
 df_last_day = df[df.Date_reported == max(df['Date_reported'])]
-top_cases = df_last_day.sort_values('Cumulative_cases',ascending = False).head(10)
-top_deaths = df_last_day.sort_values('Cumulative_deaths',ascending = False).head(10)
 df_last_day['death_rate']=df_last_day.Cumulative_deaths/df_last_day.Cumulative_cases
 top_death_rate = df_last_day.sort_values('death_rate',ascending = False).head(10)
 top_death_rate = top_death_rate.reset_index()
-
-#Figure containg 2 subplots:1 for cases and 1 for deaths
-x1=top_cases['ISO3']
-x2=top_deaths['ISO3']
-y1=top_cases['Cumulative_cases']
-y2=top_deaths['Cumulative_deaths']
-f = plt.figure(figsize=(12,9))
-plt.subplot(2,1,1)
-pop = plt.bar(x1, y1)
-plt.ylabel('Total number of cases')
-plt.xlabel('Country')
-plt.xticks(x1, rotation='horizontal')
-for i,j in enumerate(y1):
-    plt.text(i, j, float(j), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':9})
-plt.subplot(2,1,2)
-gdp =plt.bar(x2, y2)
-plt.ylabel('Total number of deaths')
-plt.xlabel('Country')
-plt.xticks(x2, rotation='horizontal')
-for i,j in enumerate(y2):
-    plt.text(i, j, float(j), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':9})
-plt.savefig('cases_deaths.jpg')
-
 #Figure showing top death rates along with cases and deaths
 country = list(top_death_rate.ISO3) 
 cases = top_death_rate['Cumulative_cases'] 
