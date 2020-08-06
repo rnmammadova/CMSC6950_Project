@@ -50,7 +50,7 @@ plt.xlabel('Country')
 plt.xticks(x2, rotation='horizontal')
 for i,j in enumerate(y2):
     plt.text(i, j, float(j), horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':9})
-plt.savefig('cases&deaths.jpg')
+plt.savefig('cases_deaths.jpg')
 
 #Figure showing top death rates along with cases and deaths
 country = list(top_death_rate.ISO3) 
@@ -74,7 +74,7 @@ ax2.set_ylabel("Rate scale", size=15)
 ax.set_xlabel("Country", size=15)
 ax.set_yscale("log")
 plt.xlim(-width,len(country)-width/2)
-ax.legend(['Deaths','Cases'], fontsize=10, loc='upper left',bbox_to_anchor=(0,.8))
+ax.legend(['Cases','Deaths'], fontsize=10, loc='upper left',bbox_to_anchor=(0,.8))
 ax2.legend(['Rate'], fontsize=10, bbox_to_anchor=(1,1))
 for i,j in enumerate(cases):
     ax.text(i-width/2, j, j, horizontalalignment='center', verticalalignment='bottom', fontdict={'fontweight':500, 'size':10})
